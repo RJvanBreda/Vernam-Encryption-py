@@ -60,7 +60,6 @@ def Platformmain():
 
   
 
-
     #Encrypting section of GUI
     #Labels, text box, buttons for encryption
 
@@ -134,8 +133,6 @@ def Platformmain():
 
     #Labels, text and button Grid placing
 
-
-
     LabelInstructD.grid(row=12,column=2,padx=0, pady=1)
     decryptLabel.grid(row=11,column=2,padx=0, pady=1)
 
@@ -165,7 +162,7 @@ def Platformmain():
 
 #Calling of functions
 #uploading of text file for encryption and decryptuon
-  # Call for upload of file encrypt
+# Call for upload of file encrypt
 def UploadTextFileEncrypt():
   
     global PlatformMain
