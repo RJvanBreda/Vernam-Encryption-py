@@ -213,7 +213,7 @@ def encryptionfinish():
     if EMessageText.get("1.0","end-1c") != "":                # get message from text box for encryption, if not message then upload of text file message encryption
         ciphertext = eMain(key,plaintext)                     # calling of main function, encryption 
         LabelCypherText.config(text=ciphertext)               # Display cipher text
-    elif filename.endswith('.txt'):
+    else:
         docText = text
         texttowrite = eMain(key,docText)
         toWrite = open(filename[:-4]+'_encrypted.txt','w')         #Write to text file of encrypted message
@@ -222,7 +222,8 @@ def encryptionfinish():
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
         display.grid(row=9, column=2, sticky="E")
-    else:
+    
+    '''else:
         docText = text
         texttowrite = eMain(key, docText)
         toWrite = open(filename[:-4] +'_encrypted.docx', 'w')
@@ -230,7 +231,7 @@ def encryptionfinish():
             toWrite.write(char)
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
-        display.grid(row=9,column=2, sticky="E")
+        display.grid(row=9,column=2, sticky="E")'''
     
     print("encryption finished")
 
@@ -263,7 +264,7 @@ def decryptionfinish():
             toWrite.write(char)
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
-        display.grid(row=19,column=2, sticky="E")
+        display.grid(row=18,column=2, sticky="E")
     else:
         docText = text
         texttowrite = eMain(key, docText)
