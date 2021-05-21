@@ -213,25 +213,24 @@ def encryptionfinish():
     if EMessageText.get("1.0","end-1c") != "":                # get message from text box for encryption, if not message then upload of text file message encryption
         ciphertext = eMain(key,plaintext)                     # calling of main function, encryption 
         LabelCypherText.config(text=ciphertext)               # Display cipher text
-    else:
+    elif filename.endswith('.txt'):                           # allows text file to be encrypted
         docText = text
         texttowrite = eMain(key,docText)
-        toWrite = open(filename[:-4]+'_encrypted.txt','w')         #Write to text file of encrypted message
+        toWrite = open(filename[:-4]+'_encrypted.txt','w')         #Write to text file of encrypted message for text file
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
         display.grid(row=9, column=2, sticky="E")
-    
-    '''else:
+    else:
         docText = text
         texttowrite = eMain(key, docText)
-        toWrite = open(filename[:-4] +'_encrypted.docx', 'w')
+        toWrite = open(filename[:-4] +'_encrypted.docx', 'w')      #Write to text file of encrypted message for word file
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
-        display.grid(row=9,column=2, sticky="E")'''
+        display.grid(row=9,column=2, sticky="E")
     
     print("encryption finished")
 
@@ -252,14 +251,14 @@ def decryptionfinish():
     ciphertext = DCyphterText.get("1.0","end-1c")
 
 
-    if DCyphterText.get("1.0","end-1c") != "":
+    if DCyphterText.get("1.0","end-1c") != "":                  # get message from text box for encryption, if not message then upload of text file message encryption
         
-        message = eMain(key,ciphertext)
+        message = eMain(key,ciphertext)                          # calling of main function, decryption
         LabelDecypherText.config(text=message)
     elif filename.endswith('.txt'):
         docText = text
         texttowrite = eMain(key, docText)
-        toWrite = open(filename[:-4] +'_decrypted.txt', 'w')
+        toWrite = open(filename[:-4] +'_decrypted.txt', 'w')           #Write to text file of decrypted message for text file
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
@@ -268,7 +267,7 @@ def decryptionfinish():
     else:
         docText = text
         texttowrite = eMain(key, docText)
-        toWrite = open(filename[:-4] +'_decrypted.docx', 'w')
+        toWrite = open(filename[:-4] +'_decrypted.docx', 'w')           #Write to text file of decrypted message for word file
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()

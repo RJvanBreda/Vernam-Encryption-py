@@ -21,7 +21,8 @@ alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 
 #create Dictionary
-# Dictionary is created that assigns each letter to binary, that will used to calculate and provide the end result of the vernam cypher
+# Dictionary is created that assigns each letter to binary, that will used to calculate and provide the end result of the vernam cypher.
+#-	A dictionary was created that allows the letters to be converted to binary, that will allow is to complete it with a XOR function.
 # list from a-z Upper and Lower letters and punctutation.
 def Dictionary():
     Dict = {'a': '000000', 'b': '000001', 'c': '000010', 'd': '000011', 'e': '000100', 'f': '000101', 'g': '000110', 'h': '000111', 'i': '001000', 'j': '001001',
@@ -37,6 +38,7 @@ def Dictionary():
 
 
 # Lengthening of key takes place, lengthes the key to the message for encryption
+# -	The encryption requires the key to be the same size as the message field. 
 def LengtheningKey(key,plaintext):                 #This function expects 2 arguments, and gets 2 arguments
     keyLength = len(key)                           #lengt of the key, length of textfield. key = 6 (101110)
     messageLength = len(plaintext)                 # plain text (message) length. message = hello: Legth = 5
