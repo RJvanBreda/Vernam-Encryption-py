@@ -1,4 +1,6 @@
 #Vernam Cypher
+# Each character of the plaintext and the key must be translated to a numeric code in order to encrypt the document. 
+# The coding schemes ASCII codes are used. The ASCII coding system, each character is given a numeric code (translated to binary code).
 
 import binascii # module contains a number of methods to convert between binary and various ASCII-encoded binary representations.
 import docx
@@ -110,6 +112,8 @@ def readWord(filename):
 # encryption system -- XOR (exlusive or) Truth table
 # A Truth gate: true or false: Works with binary: Carry out the XOR operation, applying it to each corresponding pair of bits:
 # Truth Table: 0:0 = 0 (false): 0:1 = 1(true): 1:0 = 1 (true): 1:1 = 0(false)
+#The Vernam cipher generates the ciphertext by XORing each bit of the binary character code for each letter of the plaintext -
+# with the corresponding bit of the binary character code for the corresponding character from the key stream.
 # XOR works on both encrypt and decrypt
 
 def XORFunction(binKey, binText):
