@@ -2,6 +2,8 @@
 # Each character of the plaintext and the key must be translated to a numeric code in order to encrypt the document. 
 # The coding schemes ASCII codes are used. The ASCII coding system, each character is given a numeric code (translated to binary code).
 
+
+
 import binascii # module contains a number of methods to convert between binary and various ASCII-encoded binary representations.
 import docx
 from docx import Document
@@ -62,7 +64,8 @@ def ConversionToBinary(text,dict):              #convert to bin function
     return Outlist
 
 
-# Conversion of binary to text, Cypher Text
+# Conversion of binary to text, Cipher Text
+# give us the encrypted and decrypted text back
 def ConversionText(binarylist,dict):            # xor binary to cypher text
     outString = ""
     newDict = {}
@@ -70,10 +73,10 @@ def ConversionText(binarylist,dict):            # xor binary to cypher text
         newDict[v] = k
     for binNum in binarylist:
         if binNum in "1234567890'&":
-            outString = outString + binNum
+            outString = outString + binNum      # returns text with numeric values
         else:
             char = newDict[binNum]
-            outString = outString + char
+            outString = outString + char       # returns the text values
     return outString
 
 #open of textfile
