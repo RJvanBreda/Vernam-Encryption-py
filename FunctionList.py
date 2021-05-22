@@ -43,6 +43,7 @@ def Dictionary():
 
 # Lengthening of key takes place, lengthes the key to the message for encryption
 # -	The encryption requires the key to be the same size as the message field. 
+# the lengening key 
 def LengtheningKey(key,plaintext):                 #This function expects 2 arguments, and gets 2 arguments
     keyLength = len(key)                           #lengt of the key, length of textfield. key = 6 (101110)
     messageLength = len(plaintext)                 # plain text (message) length. message = hello: Legth = 5
