@@ -223,7 +223,7 @@ def encryptionfinish():
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
-        display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
+        display = Label(PlatformMain, text= "Text Document has been exported",bg='gray63')
         display.grid(row=9, column=2, sticky="E")
     else:
         docText = text
@@ -232,8 +232,8 @@ def encryptionfinish():
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
-        display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
-        display.grid(row=9,column=2, sticky="E")
+        display = Label(PlatformMain, text= "Word Document has been exported",bg='gray63')
+        display.grid(row=10,column=2, sticky="E")
     
     print("encryption finished")
 
@@ -265,8 +265,8 @@ def decryptionfinish():
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
-        display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
-        display.grid(row=19,column=2, sticky="E")
+        display = Label(PlatformMain, text= "Text Document has been exported",bg='gray63')
+        display.grid(row=18,column=2, sticky="E")
     else:
         docText = text
         texttowrite = eMain(key, docText)
@@ -274,8 +274,8 @@ def decryptionfinish():
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
-        display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
-        display.grid(row=18,column=2, sticky="E")
+        display = Label(PlatformMain, text= "Word Document has been exported",bg='gray63')
+        display.grid(row=19,column=2, sticky="E")
 
 
     print("Decryption finished")
