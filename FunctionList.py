@@ -1,9 +1,4 @@
 #Vernam Cypher
-# Each character of the plaintext and the key must be translated to a numeric code in order to encrypt the document. 
-# The coding schemes ASCII codes are used. The ASCII coding system, each character is given a numeric code (translated to binary code).
-
-import sys
-import os
 
 import binascii # module contains a number of methods to convert between binary and various ASCII-encoded binary representations.
 import docx
@@ -26,8 +21,7 @@ alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 
 #create Dictionary
-# Dictionary is created that assigns each letter to binary, that will used to calculate and provide the end result of the vernam cypher.
-#-	A dictionary was created that allows the letters to be converted to binary, that will allow is to complete it with a XOR function.
+# Dictionary is created that assigns each letter to binary, that will used to calculate and provide the end result of the vernam cypher
 # list from a-z Upper and Lower letters and punctutation.
 def Dictionary():
     Dict = {'a': '000000', 'b': '000001', 'c': '000010', 'd': '000011', 'e': '000100', 'f': '000101', 'g': '000110', 'h': '000111', 'i': '001000', 'j': '001001',
@@ -43,8 +37,6 @@ def Dictionary():
 
 
 # Lengthening of key takes place, lengthes the key to the message for encryption
-# -	The encryption requires the key to be the same size as the message field. 
-# the lengening key 
 def LengtheningKey(key,plaintext):                 #This function expects 2 arguments, and gets 2 arguments
     keyLength = len(key)                           #lengt of the key, length of textfield. key = 6 (101110)
     messageLength = len(plaintext)                 # plain text (message) length. message = hello: Legth = 5
@@ -66,8 +58,7 @@ def ConversionToBinary(text,dict):              #convert to bin function
     return Outlist
 
 
-# Conversion of binary to text, Cipher Text
-# give us the encrypted and decrypted text back
+# Conversion of binary to text, Cypher Text
 def ConversionText(binarylist,dict):            # xor binary to cypher text
     outString = ""
     newDict = {}
@@ -75,10 +66,10 @@ def ConversionText(binarylist,dict):            # xor binary to cypher text
         newDict[v] = k
     for binNum in binarylist:
         if binNum in "1234567890'&":
-            outString = outString + binNum      # returns text with numeric values
+            outString = outString + binNum
         else:
             char = newDict[binNum]
-            outString = outString + char       # returns the text values
+            outString = outString + char
     return outString
 
 #open of textfile
@@ -117,8 +108,6 @@ def readWord(filename):
 # encryption system -- XOR (exlusive or) Truth table
 # A Truth gate: true or false: Works with binary: Carry out the XOR operation, applying it to each corresponding pair of bits:
 # Truth Table: 0:0 = 0 (false): 0:1 = 1(true): 1:0 = 1 (true): 1:1 = 0(false)
-#The Vernam cipher generates the ciphertext by XORing each bit of the binary character code for each letter of the plaintext -
-# with the corresponding bit of the binary character code for the corresponding character from the key stream.
 # XOR works on both encrypt and decrypt
 
 def XORFunction(binKey, binText):
@@ -137,4 +126,3 @@ def XORFunction(binKey, binText):
 
 # ^ (XOR),truth comparrison: binary: text becomes decimal....binary key 1011 base 2 (base 2 wat binary is) dan XOR text = hello wat mos converted is h se value 7...
 # .die is 1 0f 7.....die is reg-------word decimaal en word geplus om einde som te gee wat die finale antwoord gee
-

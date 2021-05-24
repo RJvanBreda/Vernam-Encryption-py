@@ -5,8 +5,6 @@ from tkinter import *              # GUI Toolkit
 from tkinter import filedialog     # Help you open, save files or directories
 from PIL import ImageTk            # Image importing
 import random
-import sys
-import os
 
 
 
@@ -62,6 +60,7 @@ def Platformmain():
 
   
 
+
     #Encrypting section of GUI
     #Labels, text box, buttons for encryption
 
@@ -81,7 +80,7 @@ def Platformmain():
     EncryptBut = Button(PlatformMain, text="Encrypt", command=encryptionfinish)
     EncryptButUpload = Button(PlatformMain, text="Upload File", command=UploadTextFileEncrypt)
     
-    
+
     EKeyText = Entry(PlatformMain)
     EMessageText = Entry(PlatformMain)
 
@@ -111,9 +110,6 @@ def Platformmain():
     EncryptBut.grid(row=9, column=2, padx=10, pady=2)
     LabelE.grid(row=6, column=1)
     
- 
-    
-    
     
     #Decrypting Section of GUI
     #Labels,text box, buttons Decryption
@@ -138,6 +134,8 @@ def Platformmain():
 
     #Labels, text and button Grid placing
 
+
+
     LabelInstructD.grid(row=12,column=2,padx=0, pady=1)
     decryptLabel.grid(row=11,column=2,padx=0, pady=1)
 
@@ -160,11 +158,6 @@ def Platformmain():
     DecryptUploadBut.grid(row=17, column=2, padx=10, pady=10)
     DecryptBut.grid(row=18, column=2, padx=10, pady=3)
 
-
-    
-
-    
-
     PlatformMain.mainloop()
 
 
@@ -172,7 +165,7 @@ def Platformmain():
 
 #Calling of functions
 #uploading of text file for encryption and decryptuon
-# Call for upload of file encrypt
+  # Call for upload of file encrypt
 def UploadTextFileEncrypt():
   
     global PlatformMain
@@ -223,10 +216,10 @@ def encryptionfinish():
     if EMessageText.get("1.0","end-1c") != "":                # get message from text box for encryption, if not message then upload of text file message encryption
         ciphertext = eMain(key,plaintext)                     # calling of main function, encryption 
         LabelCypherText.config(text=ciphertext)               # Display cipher text
-    elif filename.endswith('.txt'):                           # allows text file to be encrypted
+    elif filename.endswith('.txt'):
         docText = text
         texttowrite = eMain(key,docText)
-        toWrite = open(filename[:-4]+'_encrypted.txt','w')         #Write to text file of encrypted message for text file
+        toWrite = open(filename[:-4]+'_encrypted.txt','w')         #Write to text file of encrypted message
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
@@ -235,7 +228,7 @@ def encryptionfinish():
     else:
         docText = text
         texttowrite = eMain(key, docText)
-        toWrite = open(filename[:-4] +'_encrypted.docx', 'w')      #Write to text file of encrypted message for word file
+        toWrite = open(filename[:-4] +'_encrypted.docx', 'w')
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
@@ -261,38 +254,31 @@ def decryptionfinish():
     ciphertext = DCyphterText.get("1.0","end-1c")
 
 
-    if DCyphterText.get("1.0","end-1c") != "":                  # get message from text box for encryption, if not message then upload of text file message encryption
+    if DCyphterText.get("1.0","end-1c") != "":
         
-        message = eMain(key,ciphertext)                          # calling of main function, decryption
+        message = eMain(key,ciphertext)
         LabelDecypherText.config(text=message)
     elif filename.endswith('.txt'):
         docText = text
         texttowrite = eMain(key, docText)
-        toWrite = open(filename[:-4] +'_decrypted.txt', 'w')           #Write to text file of decrypted message for text file
+        toWrite = open(filename[:-4] +'_decrypted.txt', 'w')
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
-        display.grid(row=18,column=2, sticky="E")
-    elif filename.endswith('.docx'):
+        display.grid(row=19,column=2, sticky="E")
+    else:
         docText = text
         texttowrite = eMain(key, docText)
-        toWrite = open(filename[:-4] +'_decrypted.docx', 'w')           #Write to text file of decrypted message for word file
+        toWrite = open(filename[:-4] +'_decrypted.docx', 'w')
         for char in texttowrite:
             toWrite.write(char)
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
         display.grid(row=18,column=2, sticky="E")
-        
+
 
     print("Decryption finished")
-
-
-
-
-
-
-# --- main ---
 
 
 #Main function call
