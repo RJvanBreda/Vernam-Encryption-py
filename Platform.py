@@ -111,13 +111,7 @@ def Platformmain():
     EncryptBut.grid(row=9, column=2, padx=10, pady=2)
     LabelE.grid(row=6, column=1)
     
-    def refresh():
-    
-        PlatformMain.__init__()
-    
-    restart = Button(PlatformMain, text="Restart", command= refresh)
-    restart.grid(row=9, column=3, padx=10, pady=2)
-
+ 
     
     
     
