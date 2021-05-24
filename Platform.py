@@ -5,6 +5,8 @@ from tkinter import *              # GUI Toolkit
 from tkinter import filedialog     # Help you open, save files or directories
 from PIL import ImageTk            # Image importing
 import random
+import sys
+import os
 
 
 
@@ -79,7 +81,7 @@ def Platformmain():
     EncryptBut = Button(PlatformMain, text="Encrypt", command=encryptionfinish)
     EncryptButUpload = Button(PlatformMain, text="Upload File", command=UploadTextFileEncrypt)
     
-
+    
     EKeyText = Entry(PlatformMain)
     EMessageText = Entry(PlatformMain)
 
@@ -108,6 +110,13 @@ def Platformmain():
     EncryptButUpload.grid(row=8, column=2, padx=10, pady=6)
     EncryptBut.grid(row=9, column=2, padx=10, pady=2)
     LabelE.grid(row=6, column=1)
+    
+
+    
+    restart = Button(PlatformMain, text="Restart", command= refresh)
+    restart.grid(row=9, column=3, padx=10, pady=2)
+
+    
     
     
     #Decrypting Section of GUI
@@ -154,6 +163,11 @@ def Platformmain():
     
     DecryptUploadBut.grid(row=17, column=2, padx=10, pady=10)
     DecryptBut.grid(row=18, column=2, padx=10, pady=3)
+
+
+    
+
+    
 
     PlatformMain.mainloop()
 
@@ -264,7 +278,7 @@ def decryptionfinish():
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
         display.grid(row=18,column=2, sticky="E")
-    else:
+    elif filename.endswith('.docx'):
         docText = text
         texttowrite = eMain(key, docText)
         toWrite = open(filename[:-4] +'_decrypted.docx', 'w')           #Write to text file of decrypted message for word file
@@ -273,9 +287,18 @@ def decryptionfinish():
         toWrite.close()
         display = Label(PlatformMain, text= "Document has been exported",bg='gray63')
         display.grid(row=18,column=2, sticky="E")
-
+        
 
     print("Decryption finished")
+
+
+
+def refresh():
+    
+    PlatformMain.__init__()
+
+
+# --- main ---
 
 
 #Main function call

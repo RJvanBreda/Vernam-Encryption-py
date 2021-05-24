@@ -2,7 +2,8 @@
 # Each character of the plaintext and the key must be translated to a numeric code in order to encrypt the document. 
 # The coding schemes ASCII codes are used. The ASCII coding system, each character is given a numeric code (translated to binary code).
 
-
+import sys
+import os
 
 import binascii # module contains a number of methods to convert between binary and various ASCII-encoded binary representations.
 import docx
@@ -136,3 +137,4 @@ def XORFunction(binKey, binText):
 
 # ^ (XOR),truth comparrison: binary: text becomes decimal....binary key 1011 base 2 (base 2 wat binary is) dan XOR text = hello wat mos converted is h se value 7...
 # .die is 1 0f 7.....die is reg-------word decimaal en word geplus om einde som te gee wat die finale antwoord gee
+
