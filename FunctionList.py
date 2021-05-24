@@ -58,19 +58,7 @@ def ConversionToBinary(text,dict):              #convert to bin function
     return Outlist
 
 
-# Conversion of binary to text, Cypher Text
-def ConversionText(binarylist,dict):            # xor binary to cypher text
-    outString = ""
-    newDict = {}
-    for (k,v) in dict.items():
-        newDict[v] = k
-    for binNum in binarylist:
-        if binNum in "1234567890'&":
-            outString = outString + binNum
-        else:
-            char = newDict[binNum]
-            outString = outString + char
-    return outString
+
 
 #open of textfile
 def readDoc(txtfile):
@@ -122,7 +110,19 @@ def XORFunction(binKey, binText):
             OutList.append(TempBin)
     return OutList
 
-
-
 # ^ (XOR),truth comparrison: binary: text becomes decimal....binary key 1011 base 2 (base 2 wat binary is) dan XOR text = hello wat mos converted is h se value 7...
 # .die is 1 0f 7.....die is reg-------word decimaal en word geplus om einde som te gee wat die finale antwoord gee
+
+# Conversion of binary to text, Cypher Text
+def ConversionText(binarylist,dict):            # xor binary to cypher text
+    outString = ""
+    newDict = {}
+    for (k,v) in dict.items():
+        newDict[v] = k
+    for binNum in binarylist:
+        if binNum in "1234567890'&":
+            outString = outString + binNum
+        else:
+            char = newDict[binNum]
+            outString = outString + char
+    return outString
